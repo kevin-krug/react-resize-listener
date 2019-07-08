@@ -1,0 +1,36 @@
+{
+  "name": "react-resize-listener",
+  "version": "1.0.0",
+  "description": "React Resize Listener written in Typescript utilizing RxJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "React",
+    "Typescript",
+    "Resize",
+    "RxJS"
+  ],
+  "author": "kevin.d.krug@googlemail.com",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.8.6",
+    "rxjs": "^6.5.2"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.22",
+    "@types/react-dom": "^16.8.4",
+    "@types/enzyme": "^3.10.1",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.15",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
+    "jest": "^24.8.0",
+    "jest-enzyme": "^7.0.2",
+    "react-dom": "^16.8.6",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.2"
+  }
+}
