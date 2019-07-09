@@ -1,5 +1,5 @@
 {
-  "name": "react-resize-listener",
+  "name": "ts-react-resize-listener",
   "version": "1.0.0",
   "description": "React Resize Listener written in Typescript utilizing RxJS",
   "repository": {
