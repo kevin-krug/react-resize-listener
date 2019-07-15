@@ -1,6 +1,6 @@
 # TS React Resize Listener
 
-A React component written in Typescript which abstracts resize handling. The resize handler will only be called after a distinct resize change and will be debounced to limit the execution rate (default debounce time is 250ms). A custom debounce time can be added as an optional prop.
+A React component written in Typescript which abstracts resize handling. The resize handler will only be called after a distinct resize change and will be debounced to limit the execution rate (default debounce time is 250ms). A custom debounce time can be added as an optional prop individually for each component.
 
 ## Installation
 
@@ -21,7 +21,7 @@ export default class ComponentWithResizeHandling extends Component<Props> {
 			<div>
 			    <ResizeListener
 				    onResize={this.onResize}
-				    debounce= />
+				    debounce={100} />
 				...
 			</div>
 		);
@@ -44,9 +44,12 @@ export default class ComponentWithResizeHandling extends Component<Props> {
 
 ## Performance
 
-For performance reasons a singleton pattern is implemented to only register a single event listener (the windowSize observable) shared among all components rendering
-the ResizeListener component.
+For performance reasons a singleton pattern is implemented to only register a single event listener (/create a single windowSize observable) for each individual debounce time shared among all components rendering
+the ResizeListener component (with the same debounce value).
 
+## Setup
+
+`npm i`
 
 ## Tests
 
