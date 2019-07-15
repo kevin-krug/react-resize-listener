@@ -1,14 +1,12 @@
 import { fromEvent, Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 
+export const DEFAULT_DEBOUNCE = 250;
+
 export class WindowSizeService {
     public windowSize$: Observable<number>;
 
-    constructor() {
-        this.init(250);
-    }
-
-    public init = (debounce) => {
+    constructor( debounce = DEFAULT_DEBOUNCE ) {
         this.windowSize$ = fromEvent(window, 'resize').pipe(
             debounceTime(debounce),
             map(() => window.innerWidth),
@@ -17,6 +15,4 @@ export class WindowSizeService {
     }
 }
 
-const windowSizeService = new WindowSizeService();
-
-export default windowSizeService;
+export default WindowSizeService;

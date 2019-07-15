@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import windowSizeService from '../services/window-size.service';
+import WindowSizeService, { DEFAULT_DEBOUNCE } from '../services/window-size.service';
 
 interface ResizeListenerProps {
 	readonly onResize: (windowSize?: number | Event) => void;
@@ -9,16 +9,28 @@ interface ResizeListenerProps {
 }
 
 class ResizeListener extends Component<ResizeListenerProps> {
+	public static windowSizeServices = new Map<number, WindowSizeService>();
+
 	private unsubscribe$ = new Subject();
+	private windowSizeService: WindowSizeService;
+
+	constructor( props ) {
+		super( props );
+		const { debounce = DEFAULT_DEBOUNCE } = props;
+		const windowService = ResizeListener.windowSizeServices.get( debounce );
+
+		if( !windowService ) {
+			this.windowSizeService = new WindowSizeService( debounce );
+			ResizeListener.windowSizeServices.set( debounce, this.windowSizeService )
+		} else {
+			this.windowSizeService = windowService;
+		}
+	}
 
 	public componentDidMount() {
-		const { onResize, debounce } = this.props;
+		const { onResize } = this.props;
 
-		if( debounce ){
-			windowSizeService.init(debounce);
-		}
-
-		windowSizeService.windowSize$
+		this.windowSizeService.windowSize$
 			.pipe(takeUntil(this.unsubscribe$) )
 			.subscribe(windowSize => {
 			onResize(windowSize);
