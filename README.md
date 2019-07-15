@@ -11,8 +11,8 @@ A React component written in Typescript which abstracts resize handling. The res
 Simply render the ResizeListener Component as a child of the Component you would like to add resize handling to in your React Typescript project.
 
 ```jsx
-import React, {Component} from "react";
-import ResizeListener from 'react-resize-listener';
+import React, {Component} from 'react';
+import ResizeListener from 'ts-react-resize-listener';
 
 export default class ComponentWithResizeHandling extends Component<Props> {
 
