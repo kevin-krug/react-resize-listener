@@ -1,43 +1,28 @@
 {
 	"compilerOptions": {
-		"baseUrl": ".",
-		"outDir": "./dist/scripts",
-		"module": "commonjs",
-		"target": "es6",
-		"sourceMap": true,
+		"outDir": "./dist/",
+		"module": "es6",
+		"target": "es5",
 		"allowJs": true,
 		"allowSyntheticDefaultImports": true,
 		"jsx": "react",
 		"moduleResolution": "node",
-		"rootDirs": [
-			"src",
-			"environments"
-		],
 		"forceConsistentCasingInFileNames": true,
-		"experimentalDecorators": true,
 		"noImplicitReturns": true,
 		"noImplicitThis": true,
-		"noImplicitAny": false,
+		"noImplicitAny": true,
 		"strictNullChecks": true,
 		"esModuleInterop": true,
 		"suppressImplicitAnyIndexErrors": true,
 		"importHelpers": true,
 		"noUnusedLocals": true,
-		"typeRoots": ["node_modules/@types"],
-		"skipLibCheck": true,
-		"lib": [
-			"es6",
-			"dom"
-		]
+		"typeRoots": ["node_modules/@types"]
 	},
 	"include": [
-		"./src/app/app.tsx"
+		"./src/index.tsx"
 	],
 	"exclude": [
 		"./node_modules",
-		"./configs",
-		"./jest",
-		"./src/server",
-		"./src/app/shared/utilities/external-lib"
+		"./src/resize-listener/__tests__"
 	]
 }
