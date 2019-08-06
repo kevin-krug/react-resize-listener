@@ -14,7 +14,7 @@ class ResizeListener extends Component<ResizeListenerProps> {
 	private unsubscribe$ = new Subject();
 	private windowSizeService: WindowSizeService;
 
-	constructor( props ) {
+	constructor( props: ResizeListenerProps) {
 		super( props );
 		const { debounce = DEFAULT_DEBOUNCE } = props;
 		const windowService = ResizeListener.windowSizeServices.get( debounce );
@@ -32,7 +32,7 @@ class ResizeListener extends Component<ResizeListenerProps> {
 
 		this.windowSizeService.windowSize$
 			.pipe(takeUntil(this.unsubscribe$) )
-			.subscribe(windowSize => {
+			.subscribe( (windowSize: number) => {
 			onResize(windowSize);
 		});
 	}
@@ -42,7 +42,7 @@ class ResizeListener extends Component<ResizeListenerProps> {
 		this.unsubscribe$.complete();
 	}
 
-	public render() {
+	public render(): JSX.Element | null {
 		return null;
 	}
 }
