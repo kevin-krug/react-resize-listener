@@ -6,9 +6,10 @@
     "type": "git",
     "url": "https://github.com/kevin-krug/react-resize-listener.git"
   },
-  "main": "index.tsx",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc"
   },
   "keywords": [
     "React",
