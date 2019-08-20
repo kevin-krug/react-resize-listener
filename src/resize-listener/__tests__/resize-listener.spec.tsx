@@ -16,7 +16,7 @@ window.removeEventListener = jest.fn((event, cb) => {
 	removeMap[event] = cb;
 });
 
-describe('withScrollSubscription', () => {
+describe('ResizeListener', () => {
 	beforeEach(()=>{
 		addMap = {};
 		removeMap = {};
